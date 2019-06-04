@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Show</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<!-- <link rel="stylesheet" type="text/css" href="blog.css"> -->
+</head>
+<body>
+	<div class="ui fixed inverted menu">
+		<div class="ui container">
+			<div class="header item"><i class="code icon"></i> Blog Site</div>
+			<a class="item" href="/blog">
+                Home
+            </a>
+            <a class="item" href="/blog/new">
+               New Blog
+            </a>
+		</div>
+      
+
+</div>
+<br>
+<br>
+
+	<div class="ui main text container segment">
+		<h1><%= blog.name %></h1>
+		<div class="ui top attached">
+			<div class="item">
+				<img src="<%= blog.image %>"  class="ui centered rounded image"> 
+			</div>
+			<div class="content">
+				<span><h6><%= blog.Created.toDateString() %></h6></span>
+			</div>
+			<div class="description">
+				<p>
+           	       <%- blog.description %>
+                </p>
+			</div>
+			<br>
+			<div class="extra">
+				<a href="/blog/yid/<%= blog.id %>/edit" class="ui black button">Update The Blog <i class="right chevron icon"></i></a>
+				<form action="/blog/yid/<%= blog.id %>?_method=DELETE" method="POST" style="display: inline;">
+					<button class="ui red button">
+						Delete  <i class="trash icon" style="margin-left: 0.005%;"></i>	
+					</button>
+				</form>
+			</div>
+			
+			
+			
+			
+			
+		</div>
+		
+		
+           
+           
+	</div>
+	
+
+
+</body>
+</html>

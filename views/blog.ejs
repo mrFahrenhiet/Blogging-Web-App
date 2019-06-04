@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Blog Page</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+	<link rel="stylesheet" type="text/css" href="blog.css">
+</head>
+<body>
+	<div class="ui fixed inverted menu">
+		<div class="ui container">
+			<div class="header item"><i class="code icon"></i> Blog Site</div>
+			<a class="item" href="/blog">
+                Home
+            </a>
+            <a class="item" href="/blog/new">
+               New Blog
+            </a>
+		</div>
+      
+  
+</div>
+
+
+<div id="scale" class="ui main text container">
+	<div class="ui huge header">
+	    <h1>Blog page</h1>
+    </div>
+    <div class="ui top attached segment">
+    <div class=" ui divided items">
+	<% data.forEach(function(x){ %>
+	    <div class="item">
+           
+           
+           <div class="image">
+               <img src="<%= x.image %>"> 
+           </div>
+           <div class="content">
+           	    <h2><%= x.name %></h2>           	
+           
+           <div class="meta">
+           	    <span><h6><%= x.Created.toDateString() %></h6></span>
+           </div>
+           <div class="description">
+           	    <p>
+           	       <%- x.description.substring(0,100) %>...
+                </p>           	
+           </div>
+           <div class="extra"> 
+           	    <a href="/blog/yid/<%= x.id %>" class="ui violet basic button">Read More <i class="chevron right icon"></i>
+           </a>
+       </div>
+           </div>
+        </div>  
+           
+
+
+    <% }); %>
+ </div>
+ </div>   
+</div>
+
+</body>
+</html>
