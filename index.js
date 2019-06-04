@@ -1,3 +1,4 @@
+//Require Packages
 var express = require("express");
 var app = express();
 var mongoose = require("mongoose");
@@ -14,26 +15,17 @@ var blogSchema = new mongoose.Schema({
 	description: String,
 	Created: {type: Date , default: Date.now}
 });
-
+//Declaring use and model
 var Blog = mongoose.model("Blog" , blogSchema);
 app.use(express.static("public"));
 app.use(methodOverride("_method"))
-// Blog.create({
-// 	name: "Test" , 
-// 	image:"https://forums.macrumors.com/attachments/wyphnez-jpg.686192/" ,
-// 	description: "made for testing:quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo"
-// }, function(err,data){
-// 	if(err){
-// 		console.log(err);
-// 	}
-// 	else{
-// 		console.log(data);
-// 	}
-// });
-
-
-
 app.use(bodyParser.urlencoded({extended: true}));
+
+//index page
+app.get("/",function(req,res){
+        res.redirect("/blog")
+
+});
 app.get("/blog",function(req,res){
 	Blog.find({},function(err,data){
 		if(err){
